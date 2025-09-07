@@ -1,13 +1,26 @@
 import { FaShoppingCart } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar(){
     return (
-        <div>
-        <img src='./assets/logo.png'/>
+        <div className="flex flex-row justify-between">
+        <NavLink to="/">
+            <div>
+                <img src='public/logo.png'/>
+            </div>
+        </NavLink>
+
+        <NavLink to='/'>
             <div>
                 <p>Home</p>
+            </div>
+        </NavLink>
+
+        <NavLink to='/cart'>
+            <div>
                 <FaShoppingCart />
             </div>
+        </NavLink>
         </div>
     )
 }
