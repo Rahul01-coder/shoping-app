@@ -16,7 +16,7 @@ export default function Home(){
         setIsLoading(true);
         try{
             const response =await axios.get(API_URL);
-            console.log(response);
+            // console.log(response);
             setPosts(response.data)
 
         }catch(error){
@@ -37,9 +37,11 @@ export default function Home(){
             {isLoading && <Spinner />}
             {!isLoading && posts.length > 0 ? (
             <div>
-                {posts.map((post) => (
-                <Product key={post.id} post={post} />
-                ))}
+                {posts.map((post) => {
+                    {/* console.log("inside home")
+                    console.log(post) */}
+                return <Product key={post.id} post={post} />
+                })}
             </div>
             ) : !isLoading && posts.length === 0 ? (
             <div>No Product Available</div>
