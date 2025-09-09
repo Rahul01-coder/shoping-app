@@ -1,9 +1,10 @@
 import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar(){
 
-
+    const cart = useSelector(state => state.cart)
 
     return (
         <div>
@@ -19,13 +20,20 @@ export default function Navbar(){
                 <div className="flex items-center text-slate-100 font-medium mr-5 space-x-6">
                     <NavLink to='/'>
                         <div>
-                            <p>Home</p>
+                            <p className="text-xm">Home</p>
                         </div>
                     </NavLink>
 
                     <NavLink to='/cart'>
-                        <div>
-                            <FaShoppingCart />
+                        <div className="relative">
+                            <FaShoppingCart className="text-2xl"/>
+                            {
+                                cart.length > 0 && 
+                                <span
+                                className="absolute -top-2 -right-2 bg-green-600 flex justify-center items-center animate-bounce
+                                text-sm rounded-full text-white w-5 h-5"
+                                >{cart.length}</span>
+                            }
                         </div>
                     </NavLink>
                 </div>

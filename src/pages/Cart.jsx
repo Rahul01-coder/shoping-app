@@ -19,37 +19,45 @@ export default function Cart(){
             {
                 cart.length > 0 ? 
                 (
-                    <div>
-                        <div>
+                    <div className="flex max-w-6xl mx-auto">
+                        <div className="w-[50%]">
                             {cart.map((item, index) => {
                                 return <CartItem key={item.id} item={item} itemIndex={index}/>
                             })}
                         </div>
 
-                        <div>
+                        <div className="ml-20 h-[80vh] flex flex-col justify-between">
 
-                            <div>
-                                <div>Your Cart</div>
-                                <div>Summary</div>
-                                <p>
+                            <div className="mt-20 text-left">
+                                <div className="text-green-700 font-semibold text-lg uppercase">Your Cart</div>
+                                <div className="text-green-700 font-semibold text-4xl uppercase">Summary</div>
+                                <p className="font-semibold text-gray-700 mt-4">
                                     <span>Total Items: {cart.length}</span>
                                 </p>
                             </div>
 
                             <div>
-                                <p>Total Amount: ${totalAmount}</p>
-                                <button>
-                                    CheckOut Now
+                                <p className="font-semibold text-gray-500">Total Amount: <span 
+                                className="font-bold text-black">${totalAmount}</span>
+                                 </p>
+                                <button
+                                className="bg-green-700 w-xs py-2 mt-4 rounded-md font-bold text-white cursor-pointer"
+                                >
+                                    Checkout Now
                                 </button>
                             </div>
 
                         </div>
                     </div>
                 ):(
-                    <div>
-                        <h1>cart is Empty</h1>
+                    <div className="flex justify-center items-center flex-col h-[80vh] gap-y-5">
+                        <h1 
+                        className="text-lg font-bold"
+                        >cart is Empty</h1>
                         <Link to='/'>
-                            <button>
+                            <button
+                            className="bg-green-600 px-4 py-2 rounded-xl hover:cursor-progress"
+                            >
                                 Shop Now
                             </button>
                         </Link>

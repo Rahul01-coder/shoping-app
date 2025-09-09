@@ -36,15 +36,15 @@ export default function Home(){
 
             {isLoading && <Spinner />}
             {!isLoading && posts.length > 0 ? (
-            <div>
+            <div className="grid xs:grid-col-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-6xl p-2 mx-auto space-x-8 space-y-3  min-h-[80vh]">
                 {posts.map((post) => {
                     {/* console.log("inside home")
                     console.log(post) */}
                 return <Product key={post.id} post={post} />
                 })}
-            </div>
+            </div> 
             ) : !isLoading && posts.length === 0 ? (
-            <div>No Product Available</div>
+            <div className="flex justify-center items-center">No Product Available</div>
             ) : null}
 
         </div>
